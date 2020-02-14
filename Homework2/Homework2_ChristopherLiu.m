@@ -184,12 +184,29 @@ t2=linspace(0,tr_piano,n+1); tp=t2(1:n);
 kp=(1/tr_piano)*[0:n/2-1 -n/2:-1]; 
 ksp=fftshift(kp);
 
+subplot(1,2,1)
 y2t = fft(y2(1:n));
 plot(ksp,abs(fftshift(y2t))/max(abs(y2t)),'k');
 xlim([0 5000])
+title('Frequency content for piano')
 %xlim([220 350])
 set(gca,'Fontsize',[14])
 xlabel('frequency (\omega)'), ylabel('FFT(S)')
+
+% Frequencies for the recorder overtones.
+
+n=length(y3);
+t2=linspace(0,tr_rec,n+1); tr=t2(1:n); 
+kr=(1/tr_rec)*[0:n/2-1 -n/2:-1]; 
+ksr=fftshift(kr);
+
+subplot(1,2,2)
+y3t = fft(y3(1:n));
+plot(ksr,abs(fftshift(y3t))/max(abs(y3t)),'k');
+xlim([0 5e3])
+title('Frequency content for recorder')
+set(gca,'Fontsize',[14])
+xlabel('Frequency (\omega)'), ylabel('FFT(S)')
 %%
 %Gabor filter for piano
 
@@ -218,21 +235,6 @@ title('Score for Piano')
 xlabel('Time(s)')
 ylabel('Frequency (\omega)')
 colormap(hot)
-
-%%
-% Frequencies for the recorder overtones.
-
-n=length(y3);
-t2=linspace(0,tr_rec,n+1); tr=t2(1:n); 
-kr=(1/tr_rec)*[0:n/2-1 -n/2:-1]; 
-ksr=fftshift(kr);
-
-y3t = fft(y3(1:n));
-plot(ksr,abs(fftshift(y3t))/max(abs(y3t)),'k');
-xlim([0 5e3])
-title('Frequency content for recorder')
-set(gca,'Fontsize',[14])
-xlabel('Frequency (\omega)'), ylabel('FFT(S)')
 %%
 %Gabor filter for recorder
 
