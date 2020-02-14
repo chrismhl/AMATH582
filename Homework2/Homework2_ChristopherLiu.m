@@ -94,7 +94,7 @@ tslide3=0:0.1:L;
 widthmh = 1;  %change as needed
 
 for j=1:length(tslide3)
-    mhat = (1-(t-tslide3(j)).^2).*exp(-widthmh*(t-tslide3(j)).^2);
+    mhat = (1-(t-tslide3(j)).^2).*exp(-widthmh*((t-tslide3(j)).^2)/2);
     Vm=mhat.*v; 
     Vmt=fft(Vm); 
     Sgt_spec3=[Sgt_spec3; 
@@ -191,7 +191,7 @@ xlim([0 5000])
 title('Frequency content for piano')
 %xlim([220 350])
 set(gca,'Fontsize',[14])
-xlabel('frequency (\omega)'), ylabel('FFT(S)')
+xlabel('Frequency (\omega)'), ylabel('FFT(S)')
 
 % Frequencies for the recorder overtones.
 
