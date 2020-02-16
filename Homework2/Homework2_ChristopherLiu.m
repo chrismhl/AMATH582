@@ -211,9 +211,9 @@ xlabel('Frequency (\omega)'), ylabel('FFT(S)')
 %Gabor filter for piano
 
 piano_spec=[];
-incr = 0.2;
+incr = 0.16;
 tslide_p=0:incr:tr_piano;
-width = 25; %change as needed
+width = 50; %change as needed
     
 for j=1:length(tslide_p)
     g=exp(-width*(tp-tslide_p(j)).^2); % Gabor 
@@ -230,7 +230,7 @@ figure(11)
 pcolor(tslide_p,ksp,(piano_spec.'/max(max(abs(piano_spec))))) 
 shading interp 
 set(gca,'Fontsize',[14]) 
-ylim([0 1000])
+ylim([0 600])
 title('Score for Piano')
 xlabel('Time(s)')
 ylabel('Frequency (\omega)')
@@ -239,9 +239,9 @@ colormap(hot)
 %Gabor filter for recorder
 
 rec_spec=[];
-incr = 0.1;
+incr = 0.14;
 tslide_r=0:incr:tr_rec;
-width = 20; %change as needed
+width = 50; %change as needed
 
 for j=1:length(tslide_r)
     g=exp(-width*(tr-tslide_r(j)).^2); % Gabor 
@@ -258,7 +258,7 @@ figure(12)
 pcolor(tslide_r,ksr,(rec_spec.'/max(max(abs(rec_spec))))) 
 shading interp 
 set(gca,'Fontsize',[14]) 
-ylim([0 2e3])
+ylim([400 1400])
 xlabel('Time(s)')
 ylabel('Frequency (\omega)')
 title('Score for Recorder')
