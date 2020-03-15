@@ -3,7 +3,7 @@ clear all; clc; close all;
 %%
 % Importing music, creating spectrograms and ouputting as .mat
 % This was done to make it easier to move data between laptop and desktop
-D = 'C:\Users\Chris\Desktop\582hwk4\Daft Punk'; %change as needed
+D = 'C:\XXX'; %change as needed
 S = dir(fullfile(D,'*.wav'));
 X = [];
 
