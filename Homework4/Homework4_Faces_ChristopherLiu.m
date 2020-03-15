@@ -1,7 +1,7 @@
 clear all; clc; close all;
 
 % Importing the cropped face 
-D = 'C:\Users\Chris\Dropbox\School\WIN2020\AMATH 582\Homework\Homework4\yalefaces_cropped\CroppedYale';
+D = 'C:\XXX';
 S = dir(fullfile(D,'*'));
 N = setdiff({S([S.isdir]).name},{'.','..'}); % list of subfolders of D.
 index = 1;
@@ -108,7 +108,7 @@ end
 
 %%
 % Importing the uncropped faces
-D = 'C:\Users\Chris\Dropbox\School\WIN2020\AMATH 582\Homework\Homework4\yalefaces';
+D = 'C:\XXX';
 S = dir(fullfile(D,'*'));
 
 C = {S(~[S.isdir]).name}; % files in subfolder.
